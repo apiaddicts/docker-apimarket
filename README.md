@@ -1,45 +1,47 @@
-Para levantar el entorno completo (frontend, backend y base de datos), sigue estos pasos:
+# Docker APIMarket
 
-1.  Asegúrate de estar en el directorio raíz de este proyecto (donde se encuentran `docker-compose.yml`, `.env`, `Dockerfile.frontend` y `Dockerfile.backend`).
-2.  Ejecuta el siguiente comando para construir las imágenes y levantar los contenedores:
+To bring up the complete environment (frontend, backend, and database), follow these steps:
+
+1.  Make sure you are in the root directory of this project (where `docker-compose.yml`, `.env`, `Dockerfile.frontend`, and `Dockerfile.backend` are located).
+2.  Run the following command to build the images and bring up the containers:
     ```bash
     docker-compose up --build
     ```
-    La primera vez que ejecutes este comando, tardará un poco ya que clonará los repositorios y construirá las imágenes.
+    The first time you run this command, it will take a while as it will clone the repositories and build the images.
 
-Una vez que los contenedores estén corriendo:
--   El frontend debería estar accesible en `http://localhost:3000`.
--   El backend (Strapi) debería estar accesible en `http://localhost:1337`.
+Once the containers are running:
+-   The frontend should be accessible at `http://localhost:3000`.
+-   The backend (Strapi) should be accessible at `http://localhost:1337`.
 
-### Variables de Entorno
+### Environment Variables
 
-A continuación se muestra una tabla con las variables de entorno necesarias para configurar el proyecto:
+Below is a table with the necessary environment variables to configure the project:
 
-| Variable | Descripción | Servicio |
+| Variable | Description | Service |
 | --- | --- | --- |
-| `FRONTEND_PORT` | Puerto para el contenedor del frontend. | `frontend` |
-| `VITE_APP_STRAPI_URL` | URL del backend de Strapi, utilizada por el frontend. | `frontend` |
-| `VITE_PORT` | Puerto de Vite para el frontend. | `frontend` |
-| `BACKEND_PORT` | Puerto para el contenedor del backend. | `backend` |
-| `APP_KEYS` | Claves de la aplicación Strapi. | `backend` |
-| `DATABASE_CLIENT` | Cliente de la base de datos (por ejemplo, `postgres`). | `backend` |
-| `DATABASE_HOST` | Host de la base de datos (el nombre del contenedor de la base de datos). | `backend` |
-| `DATABASE_PORT` | Puerto de la base de datos. | `backend` |
-| `DATABASE_NAME` | Nombre de la base de datos. | `backend` |
-| `DATABASE_USERNAME` | Usuario de la base de datos. | `backend` |
-| `DATABASE_PASSWORD` | Contraseña de la base de datos. | `backend` |
-| `DATABASE_SSL` | Indica si la conexión a la base de datos necesita SSL. | `backend` |
-| `DB_PORT` | Puerto para el contenedor de la base de datos. | `database` |
-| `POSTGRES_DB` | Nombre de la base de datos. | `database` |
-| `POSTGRES_USER` | Usuario de la base de datos. | `database` |
-| `POSTGRES_PASSWORD` | Contraseña de la base de datos. | `database` |
-| `AWS_ACCESS_KEY_ID` | (Opcional) ID de la clave de acceso de AWS para S3. | `backend` |
-| `AWS_SECRET_ACCESS_KEY` | (Opcional) Clave de acceso secreta de AWS para S3. | `backend` |
-| `AWS_REGION` | (Opcional) Región de AWS para S3. | `backend` |
-| `AWS_BUCKET` | (Opcional) Nombre del bucket de AWS para S3. | `backend` |
-| `AWS_BUCKET_SUBDIRECTORY` | (Opcional) Subdirectorio del bucket de AWS para S3. | `backend` |
-| `AWS_CDN_DOMAIN` | (Opcional) Dominio de CDN de AWS. | `backend` |
+| `FRONTEND_PORT` | Port for the frontend container. | `frontend` |
+| `VITE_APP_STRAPI_URL` | URL of the Strapi backend, used by the frontend. | `frontend` |
+| `VITE_PORT` | Vite port for the frontend. | `frontend` |
+| `BACKEND_PORT` | Port for the backend container. | `backend` |
+| `APP_KEYS` | Strapi application keys. | `backend` |
+| `DATABASE_CLIENT` | Database client (e.g., `postgres`). | `backend` |
+| `DATABASE_HOST` | Database host (the name of the database container). | `backend` |
+| `DATABASE_PORT` | Database port. | `backend` |
+| `DATABASE_NAME` | Database name. | `backend` |
+| `DATABASE_USERNAME` | Database user. | `backend` |
+| `DATABASE_PASSWORD` | Database password. | `backend` |
+| `DATABASE_SSL` | Indicates if the database connection needs SSL. | `backend` |
+| `DB_PORT` | Port for the database container. | `database` |
+| `POSTGRES_DB` | Database name. | `database` |
+| `POSTGRES_USER` | Database user. | `database` |
+| `POSTGRES_PASSWORD` | Database password. | `database` |
+| `AWS_ACCESS_KEY_ID` | (Optional) AWS access key ID for S3. | `backend` |
+| `AWS_SECRET_ACCESS_KEY` | (Optional) AWS secret access key for S3. | `backend` |
+| `AWS_REGION` | (Optional) AWS region for S3. | `backend` |
+| `AWS_BUCKET` | (Optional) AWS bucket name for S3. | `backend` |
+| `AWS_BUCKET_SUBDIRECTORY` | (Optional) AWS bucket subdirectory for S3. | `backend` |
+| `AWS_CDN_DOMAIN` | (Optional) AWS CDN domain. | `backend` |
 
 
-**Nota Importante:**
-Si necesitas configurar variables de entorno adicionales para Strapi o el frontend (como credenciales de AWS S3, etc.), deberás agregarlas al archivo `.env` y/o directamente en la sección `environment` de los servicios correspondientes en `docker-compose.yml`.
+**Important Note:**
+If you need to configure additional environment variables for Strapi or the frontend (such as AWS S3 credentials, etc.), you will need to add them to the `.env` file and/or directly in the `environment` section of the corresponding services in `docker-compose.yml`.
