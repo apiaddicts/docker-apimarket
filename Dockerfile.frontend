@@ -8,6 +8,8 @@ WORKDIR /usr/src/app
 # Clone the repository
 RUN git clone https://github.com/apiaddicts/apiportal-front .
 
+RUN git pull
+
 # Install dependencies
 RUN npm install
 
